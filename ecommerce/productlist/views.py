@@ -93,4 +93,13 @@ def product_delete(request,id):
         Product.objects.filter(id=id).delete()
         r=reverse("product_list")
         return HttpResponseRedirect(r)
-    
+def product_update(request,id):
+    if request.method == 'POST':
+        update=Product.objects.get(id=id)
+        update.name=request.POST['pname']
+        update.description=request.POST['pdescription']
+        update.price=request.POST['pprice']
+        update.save()
+        r=reverse("product_list")
+        return HttpResponseRedirect(r)
+    return render(request, 'productlist/product_update.html')
