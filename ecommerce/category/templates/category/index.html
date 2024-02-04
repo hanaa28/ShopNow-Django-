@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <h1 class="navbar-brand" href="#">ShopNow</h1>
+              
+              <ul class="nav justify-content-end">
+            
+               <li>
+                
+                <a href="{%url 'add_Category'%}" >Add New Category Form</a>
+               
+               </li>
+                
+              </ul>
+            </div>
+          </nav>
+        
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              {% for cate in category_list %}
+              <tr>
+                <td>{{ cate.id }}</td>
+                <td>{{ cate.name }}</td>
+                <td><a href="{% url 'category_delete' cate.id %}">delete</a></td>
+                
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>

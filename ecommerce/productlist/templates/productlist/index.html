@@ -16,9 +16,10 @@
               <ul class="nav justify-content-end">
             
                <li>
-                <a href="{%url 'addproduct'%}" >Add New Product</a>
-               </li>
-                
+            </li>
+            
+            <a href="{%url 'addproduct'%}" >Add New Product</a>
+            <a href="{%url 'addForm'%}" >Add New Product form</a>
               </ul>
             </div>
           </nav>
@@ -28,7 +29,9 @@
                 <div class="col-md-4">
                    
                     <div class="card mb-4 shadow-sm">
-                        <img src="{% static 'images/' %}{{ product.path }}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+                         <img src="{{ product.get_image_url }}" class="bd-placeholder-img card-img-top" width="100%" height="225"
+                        class="bd-placeholder-img card-img-top" width="100%" height="225">
+
                         <div class="card-body">
                             <p class="card-text"> {{ product.name}}</p>
                             <p class="card-text"> {{ product.price }} $</p>

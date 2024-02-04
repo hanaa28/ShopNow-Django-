@@ -4,7 +4,7 @@
          
             <h2>Add a New Product</h2>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
               <label for="name">Name:</label><br>
               <input type="text" id="name" name="pname"><br><br>
@@ -12,6 +12,9 @@
               <input type="text" id="price" name="pprice"><br><br>
               <label for="description">Description:</label><br>
               <textarea id="description" name="pdescription" rows="4" cols="50"></textarea><br><br>
+              <label for="image">Image:</label><br>
+              <input type="file" id="image" name="pimage"><br><br>
+
               <input type="submit" value="Add New Product">
             </form>
                 {%endblock%}

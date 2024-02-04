@@ -1,0 +1,13 @@
+{%extends 'productlist/index.html' %}
+{% load static %}
+            {%block product%}
+         
+            <h2>Add a New Product</h2>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{product}}
+              <input type="submit" value="Add New Product">
+            </form>
+                {%endblock%}
+      

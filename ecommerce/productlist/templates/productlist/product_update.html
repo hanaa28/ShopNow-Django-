@@ -1,1 +1,24 @@
-{%extends 'productlist/AddProduct.html' %}
+{%extends 'productlist/index.html' %}
+{% load static %}
+            {%block product%}
+         
+            <h2>Add a New Product</h2>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+              <label for="name" >Name:</label><br>
+              <input type="text" id="name" name="pname" value="{{products.name}}"><br><br>
+              <label for="price">Price:</label><br>
+              <input type="text" id="price" name="pprice" value="{{products.price}}"><br><br>
+              <label for="description">Description:</label><br>
+              <textarea id="description" name="pdescription" rows="4" cols="50" >{{products.description}}</textarea><br><br>
+              <label for="image">Image:</label><br>
+              <input type="file" id="image" name="pimage" ><br><br>
+
+              <input type="submit" value="Update Product">
+            </form>
+            <div style="color: red;">
+            {{msg}}
+        </div>
+                {%endblock%}
+      
