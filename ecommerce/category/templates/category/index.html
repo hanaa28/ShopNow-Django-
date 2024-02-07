@@ -17,7 +17,7 @@
             
                <li>
                 
-                <a href="{%url 'add_Category'%}" >Add New Category Form</a>
+                <a href="{%url 'category_Create'%}" >Add New Category Form</a>
                
                </li>
                 
@@ -38,7 +38,8 @@
               <tr>
                 <td>{{ cate.id }}</td>
                 <td>{{ cate.name }}</td>
-                <td><a href="{% url 'category_delete' cate.id %}">delete</a></td>
+                <td><a href="{% url 'categorydeleted' pk=cate.pk %}">delete</a></td>
+                <td><a href="{% url 'category_update' pk=cate.pk %}">update</a></td>
                 
               </tr>
               {% endfor %}

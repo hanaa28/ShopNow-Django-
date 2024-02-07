@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+from django.urls import reverse_lazy
+from django.views.generic import UpdateView,DeleteView,CreateView
+from category.models import Category
 
 from .models import Category
 from .forms import CategoryForm
@@ -31,3 +33,22 @@ def category_delete(request,id):
         Category.objects.filter(id=id).delete()
         r=reverse("category_list")
         return HttpResponseRedirect(r)
+# Generic View
+class category_update(UpdateView):
+     model=Category
+     template_name='category/update.html'
+    #  context_object_name='form'
+     form_class=CategoryForm
+     success_url=reverse_lazy('category_list')
+
+class categorydeleted(DeleteView):
+      model = Category
+      template_name = 'category/delete.html'
+      success_url = reverse_lazy('category_list')  
+    
+class category_Create(CreateView):
+    model = Category
+    template_name = 'category/update.html'
+    form_class = CategoryForm
+    success_url = reverse_lazy('category_list')     
+

@@ -30,5 +30,5 @@ urlpatterns = [
     path('product_delete/<int:id>/', productlist_views.product_delete, name='product_delete'),
     path('product_update/<int:id>/', productlist_views.product_update, name='product_update'),
     path('AddProductFrom', productlist_views.addForm, name='addForm'),
-    path('category',include('category.urls'))
+    path('category/',include('category.urls'))
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
