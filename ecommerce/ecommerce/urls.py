@@ -33,4 +33,5 @@ urlpatterns = [
     path('AddProductFrom', productlist_views.addForm, name='addForm'),
     path('category/',include('category.urls')),
     path('accounts/',include('accounts.urls')),
+    path('product/API/',include('productlist.api.urls')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
