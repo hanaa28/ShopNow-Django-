@@ -5,6 +5,8 @@ from django.urls import reverse
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView,DeleteView,CreateView
 from category.models import Category
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from .models import Category
 from .forms import CategoryForm
@@ -46,7 +48,8 @@ class categorydeleted(DeleteView):
       template_name = 'category/delete.html'
       success_url = reverse_lazy('category_list')  
     
-class category_Create(CreateView):
+@method_decorator(login_required, name='dispatch')      
+class categoryCreate(CreateView):
     model = Category
     template_name = 'category/update.html'
     form_class = CategoryForm

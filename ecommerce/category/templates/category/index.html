@@ -24,7 +24,18 @@
               </ul>
             </div>
           </nav>
-        
+        <div class="container">
+          {%if user.id%}
+          <h1>welcome {{user}}</h1>
+          <form method="post" action="{%url 'logout'%}">
+            {%csrf_token%}
+            <button type="submit">logout</button>
+          {%else%}
+
+          <a href="{%url 'login'%}">login</a>
+          <a href="{%url 'myregister'%}">register</a>
+          {%endif%}
+        </div>
           <table class="table table-dark table-hover">
             <thead>
               <tr>

@@ -22,7 +22,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from productlist import views as productlist_views
 from django.urls import path,include
-from category import views 
+from category import views
+
 urlpatterns = [
     path('', productlist_views.product_list,name="product_list"),
     path('product_detail/<int:id>/', productlist_views.product_detail, name='product_detail'),
@@ -30,5 +31,6 @@ urlpatterns = [
     path('product_delete/<int:id>/', productlist_views.product_delete, name='product_delete'),
     path('product_update/<int:id>/', productlist_views.product_update, name='product_update'),
     path('AddProductFrom', productlist_views.addForm, name='addForm'),
-    path('category/',include('category.urls'))
+    path('category/',include('category.urls')),
+    path('accounts/',include('accounts.urls')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
